@@ -24,3 +24,11 @@ At the bottom of the menu click "+ Register new mod"
 Enter the location of the main.js file in the URL field (eg. http://127.0.0.1:8080/main.js if you're using a standard http server, and hosting just the folder containing main.js). The name shouldn't matter, but it's called CraftClicker.
 
 4. Reload the page.
+
+# Resources
+
+[Cookie Clicker Mod Manager (CCMM)](https://github.com/klattmose/CookieClickerModManager)
+Loads mods for Cookie Clicker
+
+[Cookie Clicker Script Extender (CCSE)](https://klattmose.github.io/CookieClicker/CCSE-POCs/)
+Modding framework for Cookie Clicker
