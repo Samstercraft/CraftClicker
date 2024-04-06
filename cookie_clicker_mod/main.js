@@ -20,6 +20,19 @@ CraftClicker.getTestUpgradePrice = function(){
     return 1;
 }
 
+CraftClicker.hideCursorAndGrandma = function() {
+    Game.Objects['Cursor'].l.className = 'product toggledOff';
+    Game.Objects['Grandma'].l.className = 'product toggledOff';
+}
+
+CraftClicker.removeVanillaContent = function() {
+    for(var i in Game.Objects) {
+        Game.Objects[i].basePrice = NaN;
+    }
+
+    Game.customMenu.push(CraftClicker.hideCursorAndGrandma);
+}
+
 CraftClicker.launch = function () {
     if (CCSE.ConfirmGameVersion(CraftClicker.name, CraftClicker.version, CraftClicker.GameVersion)) {
         console.log("Started loading CraftClicker");
@@ -40,6 +53,9 @@ CraftClicker.launch = function () {
         CraftClicker.images = {
             testImg: "testerIcns.png",
         };
+
+        var maxVanillaBuildingID = Game.ObjectsById.length - 1;
+        CraftClicker.removeVanillaContent(); // this deleting an object used elsewhere is causing the game to hang
 
         for(var key in CraftClicker.images) {
             if (CraftClicker.images.hasOwnProperty(key)) {
@@ -74,6 +90,23 @@ CraftClicker.launch = function () {
 		);
 
         // my stuff again
+
+        Game.Objects['Tester'].bought = 1 //force show building
+
+        var moddedBuildingsCount = Game.ObjectsById.length - 1 - maxVanillaBuildingID;
+
+        /*this is bugged, remove it to remove hang on buy tower & hidden tester name. this doesn't work but has the right idea
+        for(var i = 0; i < Game.ObjectsById.length; i++) {
+            Game.ObjectsById[i].id += moddedBuildingsCount;
+            if(i >= moddedBuildingsCount) { //double check this logic later (and next line too)
+                Game.ObjectsById[i].id = i - moddedBuildingsCount;
+            }
+        }*/
+
+        //for()Game.Objects[i].id 
+
+        //Game.Objects['Grandma'] = null;
+        
 
         CraftClicker.isLoaded = true;
         console.log("Finished loading CraftClicker!");
