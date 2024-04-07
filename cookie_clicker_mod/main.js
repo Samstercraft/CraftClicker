@@ -40,7 +40,7 @@ CraftClicker.launch = function () {
         //Change this to false to use github urls
         CraftClicker.HOST_LOCALLY = true;
         CraftClicker.LOCAL_ADDRESS = "http://127.0.0.1:8080";
-        CraftClicker.GLOBAL_ADDRESS = ""; // Replace with actual GitHub URL
+        CraftClicker.GLOBAL_ADDRESS = "https://github.com/Samstercraft/CraftClicker/blob/main/cookie_clicker_mod/main.js"; // Replace with actual GitHub URL
         
         CraftClicker.relativePath = "";
         if (CraftClicker.HOST_LOCALLY) {
